@@ -32,6 +32,42 @@ region = Rect2(0, 192, 64, 64)
 atlas = ExtResource("2_wn8rh")
 region = Rect2(64, 192, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2egt6"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blrpk"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldrbi"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26c3c"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l87v"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmfyx"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34f4x"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08mus"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(448, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucv2h"]
+atlas = ExtResource("3_vbpto")
+region = Rect2(512, 192, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_47g3u"]
 atlas = ExtResource("3_vbpto")
 region = Rect2(0, 0, 64, 64)
@@ -104,42 +140,6 @@ region = Rect2(448, 128, 64, 64)
 atlas = ExtResource("3_vbpto")
 region = Rect2(512, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2egt6"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(0, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blrpk"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(64, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ldrbi"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(128, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_26c3c"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(192, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5l87v"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(256, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmfyx"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(320, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34f4x"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(384, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_08mus"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(448, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucv2h"]
-atlas = ExtResource("3_vbpto")
-region = Rect2(512, 192, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_x4x15"]
 animations = [{
 "frames": [{
@@ -174,6 +174,38 @@ animations = [{
 "loop": true,
 "name": &"idle_side",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2egt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blrpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldrbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26c3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l87v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmfyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34f4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08mus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucv2h")
+}],
+"loop": true,
+"name": &"walk_1",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -272,7 +304,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_4x8vn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -284,7 +316,7 @@ shape = SubResource("RectangleShape2D_1a2b3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_x4x15")
-animation = &"walk_side"
+animation = &"walk_1"
 autoplay = "idle_forward"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
