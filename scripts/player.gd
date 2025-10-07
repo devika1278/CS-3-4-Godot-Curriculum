@@ -1,15 +1,16 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var slime: Enemy = $"../slime"
+
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var slime: Enemy = $"../slime"
 @export var move_speed: float = 200.0
 @export var maxHealth : int = 10
 @export var health : int = maxHealth
 @export var coins : int = 0
 @export var attack_strength: int = -2
+@export var ammount: int 
 
 var facing: Vector2 = Vector2.ZERO
 
@@ -59,6 +60,8 @@ func collect_pickup(_type : String, _amount : int):
 	if _type == "coin":
 		coins += _amount
 		print("Coins: " + str(coins))
+	if coins <= 0:
+		die()
 	elif _type == "health_potion":
 		change_health(_amount)
 		
@@ -80,17 +83,17 @@ func change_health(_amount):
 
 func die():
 	get_tree().reload_current_scene()
-
+ 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit(0)
 	if event.is_action_pressed("ui_select"):
 		attack()
+		coins -= ammount
+		print("Coins: " + str(coins))
 		
 func attack():
 	#print("YIPPEEE")
 	if slime != null:
 		if position.distance_to(slime.position) < 10:
 			slime.change_health(attack_strength)
-	#if slime.position <= 35:
-		

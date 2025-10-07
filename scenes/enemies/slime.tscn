@@ -54,6 +54,7 @@ animations = [{
 script = ExtResource("1_4h4y0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 1.8125)
 sprite_frames = SubResource("SpriteFrames_uhx0m")
 animation = &"idle"
 autoplay = "idle"
@@ -66,6 +67,7 @@ metadata/personal_space = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_ankfk")
+disabled = true
 
 [connection signal="body_entered" from="Detection Radius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="Detection Radius" to="." method="_on_detection_radius_body_exited"]
