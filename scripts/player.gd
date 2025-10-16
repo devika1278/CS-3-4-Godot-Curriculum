@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 
-
+@onready var label: Label = $Label
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var slime: Enemy = $"../slime"
 @export var move_speed: float = 200.0
@@ -55,10 +55,13 @@ func handle_sprite(direction: Vector2) -> void:
 	elif facing.x > 0:
 		animated_sprite.play(prefix + "_side")
 		animated_sprite.flip_h = false
+	if attack() == true:
+		animated_sprite.play("fight")
 
 func collect_pickup(_type : String, _amount : int):
 	if _type == "coin":
 		coins += _amount
+		label._update_score_display(coins)
 		print("Coins: " + str(coins))
 	elif _type == "health_potion":
 		change_health(_amount)
