@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-
-@onready var label: Label = $Label
+@onready var label_health: Label = $Health
+@onready var label: Label = $Coins
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var slime: Enemy = $"../slime"
 @export var move_speed: float = 200.0
@@ -11,6 +11,7 @@ class_name Player
 @export var coins : int = 0
 @export var attack_strength: int = -2
 @export var ammount: int 
+var is_attacking = false
 
 var facing: Vector2 = Vector2.ZERO
 
@@ -55,8 +56,19 @@ func handle_sprite(direction: Vector2) -> void:
 	elif facing.x > 0:
 		animated_sprite.play(prefix + "_side")
 		animated_sprite.flip_h = false
-	if attack() == true:
+	if is_attacking:
 		animated_sprite.play("fight")
+	elif !is_attacking:
+		if facing.y > 0:
+			animated_sprite.play(prefix + "_forward")
+		elif facing.y < 0:
+			animated_sprite.play(prefix + "_backward")
+		elif facing.x < 0:
+			animated_sprite.play(prefix + "_side")
+			animated_sprite.flip_h = true
+		elif facing.x > 0:
+			animated_sprite.play(prefix + "_side")
+			animated_sprite.flip_h = false
 
 func collect_pickup(_type : String, _amount : int):
 	if _type == "coin":
@@ -74,29 +86,32 @@ func collect_pickup(_type : String, _amount : int):
 
 func change_health(_amount): 
 	health += _amount
+	label_health._update_health_display(health)
 	if health > maxHealth:
 		health = maxHealth
 		
 	elif health < 1:
 		die()
-		
 	print("Health: " + str(health))
 
 func die():
 	get_tree().reload_current_scene()
  
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:  
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit(0)
 	if event.is_action_pressed("ui_select"):
 		attack()
 		coins -= ammount
+		label._update_score_display(coins)
 		print("Coins: " + str(coins))
 		if coins <= 0:
 			die()
+		elif coins>= 0:
+			pass
 		
 func attack():
-	#print("YIPPEEE")
+	is_attacking = true
 	if slime != null:
 		if position.distance_to(slime.position) < 10:
 			slime.change_health(attack_strength)

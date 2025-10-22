@@ -1,6 +1,9 @@
 @tool
+class_name inventory_item
 extends Resource
-class_name inventory_.item
 
-@export var description 
-@export var price
+var type: String
+var cost: int
+@export var description: String 
+@export var price: int
+var image: Texture2D

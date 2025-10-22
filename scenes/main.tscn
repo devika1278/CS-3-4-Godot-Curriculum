@@ -76,7 +76,7 @@ position = Vector2(150, 29)
 
 [node name="Player" parent="." instance=ExtResource("1_2j8vx")]
 unique_name_in_owner = true
-position = Vector2(-192, -6)
+position = Vector2(70, 17)
 ammount = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -107,3 +107,39 @@ position = Vector2(-54, 28)
 
 [node name="Coin5" parent="." instance=ExtResource("5_tbgi4")]
 position = Vector2(23, 78)
+
+[node name="Coin6" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(-131, 50)
+
+[node name="Coin7" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(-108, 16)
+
+[node name="Coin8" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(-171, 73)
+
+[node name="Coin9" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(-152, 3)
+
+[node name="Coin10" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(89, 67)
+
+[node name="Coin11" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(89, -12)
+
+[node name="Coin12" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(46, -60)
+
+[node name="Coin13" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(46, -99)
+
+[node name="Coin14" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(47, -142)
+
+[node name="Coin15" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(49, -194)
+
+[node name="Coin16" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(49, -241)
+
+[node name="Coin17" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(44, -296)

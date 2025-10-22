@@ -27,10 +27,6 @@ func _on_detection_radius_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		is_hostile = false
 
-#
-#func _on_personal_space_body_entered(body: Node2D) -> void:
-	#if body.is_in_group("player"):
-		#get_tree().reload_current_scene()
 
 func change_health(_amount):
 	health += _amount
