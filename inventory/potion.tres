@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="inventory_item" load_steps=2 format=3 uid="uid://bf2w28eatul20"]
+
+[ext_resource type="Script" uid="uid://dt0t0irs4dbvr" path="res://scripts/item.gd" id="1_gil0t"]
+
+[resource]
+script = ExtResource("1_gil0t")
+metadata/_custom_type_script = "uid://dt0t0irs4dbvr"
