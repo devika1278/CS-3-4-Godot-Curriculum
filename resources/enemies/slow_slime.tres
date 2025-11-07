@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://pxtlp11d13g1"]
+
+[ext_resource type="SpriteFrames" uid="uid://vb5a3rr6m1hr" path="res://resources/animations/red_slime_frames.tres" id="1_q06u8"]
+[ext_resource type="Script" uid="uid://bxtjti5hlu2op" path="res://scripts/resources/enemy_resource.gd" id="2_4umfj"]
+
+[resource]
+script = ExtResource("2_4umfj")
+enemy_id = "slow_slime"
+enemy_name = "slow Slime"
+animated_frames = ExtResource("1_q06u8")
+sprite_scale = 2.0
+max_health = 80.0
+contact_damage = 8.0
+move_speed = 50.0
+detection_range = 800.0

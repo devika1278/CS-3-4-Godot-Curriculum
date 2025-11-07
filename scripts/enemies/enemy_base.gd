@@ -59,6 +59,7 @@ class_name EnemyBase
 ##
 ## ============================================================================
 
+
 @export var enemy_data: EnemyResource
 
 # Current stats (loaded from EnemyResource and scaled by wave)

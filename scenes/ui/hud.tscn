@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8wk4n6mqpr3m"]
+[gd_scene load_steps=6 format=3 uid="uid://c8wk4n6mqpr3m"]
 
-[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://spj03ofeblpa" path="res://scripts/ui/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
+bg_color = Color(0.93484306, 0.50874066, 0.8009594, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqnrr"]
+bg_color = Color(0.85171586, 0.14751297, 0.6693698, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo48s"]
+bg_color = Color(0.9521099, 0.52817786, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qguk"]
+bg_color = Color(1, 0.2691014, 0.59234595, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
@@ -24,7 +36,8 @@ size_flags_vertical = 0
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
-max_value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0mwgc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqnrr")
 value = 100.0
 show_percentage = false
 
@@ -46,7 +59,8 @@ text = "Health: 100/100"
 [node name="XPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 25)
 layout_mode = 2
-max_value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bo48s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8qguk")
 show_percentage = false
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/XPBar"]
